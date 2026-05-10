@@ -7,6 +7,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Stats } from "@/components/Stats";
 import { Testimonials } from "@/components/Testimonials";
 import { Team } from "@/components/Team";
+import { RecentWork } from "@/components/RecentWork";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <TechTicker />
       <Services />
+      <RecentWork />
       <HowItWorks />
       <Stats />
       <Testimonials />
