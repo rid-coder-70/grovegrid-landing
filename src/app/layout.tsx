@@ -35,9 +35,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceMono.variable} ${syne.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${spaceMono.variable} ${syne.variable} h-full antialiased scroll-smooth overflow-x-hidden`}
     >
-      <body className="min-h-full flex flex-col bg-[#050810] text-[#e2e8f0] font-inter">
+      <body className="min-h-full w-full flex flex-col bg-[#050810] text-[#e2e8f0] font-inter overflow-x-hidden">
         {children}
       </body>
     </html>

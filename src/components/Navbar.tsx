@@ -34,7 +34,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -58,16 +57,13 @@ export const Navbar = () => {
             <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 bg-cyan-default transform rotate-45 group-hover:shadow-[0_0_10px_var(--cyan)] transition-shadow"></div>
             <span className="font-syne font-extrabold tracking-widest text-base sm:text-lg">SYNTHORIX</span>
           </a>
-
-          {/* Desktop Navigation */}
           <div className="hidden md:flex gap-6 lg:gap-8 items-center font-mono text-xs lg:text-sm tracking-widest uppercase text-textMuted z-10">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`nav-link hover:text-cyan-default ${
-                  activeSection === item.id ? "text-cyan-default active" : ""
-                }`}
+                className={`nav-link hover:text-cyan-default ${activeSection === item.id ? "text-cyan-default active" : ""
+                  }`}
               >
                 {item.name}
               </a>
@@ -87,77 +83,95 @@ export const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden z-[110] relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 text-cyan-default"
+            className="md:hidden z-[110] relative w-10 h-10 flex flex-col items-center justify-center text-cyan-default hover:bg-white/5 transition-colors rounded-sm"
             aria-label="Toggle menu"
           >
-            <span
-              className={`block w-6 h-0.5 bg-cyan-default transition-all duration-300 ${
-                mobileOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-cyan-default transition-all duration-300 ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-cyan-default transition-all duration-300 ${
-                mobileOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <div className="relative w-6 h-5">
+              <span
+                className={`absolute block w-6 h-0.5 bg-cyan-default transition-all duration-300 ease-in-out ${mobileOpen ? "top-2.5 rotate-45" : "top-0"
+                  }`}
+              />
+              <span
+                className={`absolute block w-6 h-0.5 bg-cyan-default transition-all duration-300 ease-in-out top-2.5 ${mobileOpen ? "opacity-0" : "opacity-100"
+                  }`}
+              />
+              <span
+                className={`absolute block w-6 h-0.5 bg-cyan-default transition-all duration-300 ease-in-out ${mobileOpen ? "top-2.5 -rotate-45" : "top-5"
+                  }`}
+              />
+            </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay - rendered outside nav to avoid stacking context issues */}
+      {/* Mobile Menu Backdrop */}
       <div
-        className={`fixed inset-0 bg-bg z-[100] md:hidden flex flex-col items-center justify-center transition-all duration-300 ${
-          mobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] md:hidden transition-opacity duration-500 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[80%] max-w-[300px] bg-bg/95 backdrop-blur-xl border-l border-borderCol z-[100] md:hidden flex flex-col transition-transform duration-500 ease-in-out ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center gap-6">
-          {navItems.map((item, index) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={handleNavClick}
-              className={`font-mono text-lg sm:text-xl uppercase tracking-widest transition-colors ${
-                activeSection === item.id
-                  ? "text-cyan-default"
-                  : "text-textMuted hover:text-cyan-default"
-              }`}
-              style={{
-                transitionDelay: mobileOpen ? `${index * 60}ms` : "0ms",
-                opacity: mobileOpen ? 1 : 0,
-                transform: mobileOpen ? "translateY(0)" : "translateY(10px)",
-                transition: `opacity 0.3s ease ${mobileOpen ? index * 60 : 0}ms, transform 0.3s ease ${mobileOpen ? index * 60 : 0}ms, color 0.3s ease`,
-              }}
+        <div className="flex flex-col h-full p-8">
+          <div className="flex justify-between items-center mb-12">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-cyan-default transform rotate-45"></div>
+              <span className="font-syne font-bold tracking-widest text-sm uppercase">Synthorix</span>
+            </div>
+            <button 
+              onClick={() => setMobileOpen(false)}
+              className="text-textMuted hover:text-cyan-default transition-colors"
             >
-              {item.name}
-            </a>
-          ))}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+          
+          <div className="flex flex-col gap-6">
+            {navItems.map((item, index) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={handleNavClick}
+                className={`font-mono text-lg uppercase tracking-widest transition-all duration-300 ${
+                  activeSection === item.id
+                    ? "text-cyan-default translate-x-2"
+                    : "text-textMuted hover:text-cyan-default hover:translate-x-2"
+                }`}
+                style={{
+                  transitionDelay: mobileOpen ? `${index * 50}ms` : "0ms",
+                  opacity: mobileOpen ? 1 : 0,
+                  transform: mobileOpen ? "translateX(0)" : "translateX(20px)",
+                }}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
 
           <div
-            className="mt-6 flex flex-col items-center gap-4"
+            className="mt-auto flex flex-col gap-6 border-t border-borderCol pt-8"
             style={{
               opacity: mobileOpen ? 1 : 0,
-              transform: mobileOpen ? "translateY(0)" : "translateY(10px)",
-              transition: `opacity 0.3s ease ${mobileOpen ? 400 : 0}ms, transform 0.3s ease ${mobileOpen ? 400 : 0}ms`,
+              transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
+              transition: `all 0.5s ease ${mobileOpen ? 400 : 0}ms`,
             }}
           >
-            <div className="flex items-center gap-2 text-xs font-mono text-textMuted uppercase">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              Now Accepting Clients
+            <div className="flex items-center gap-2 text-[10px] font-mono text-textMuted uppercase tracking-tight">
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+              Accepting Clients
             </div>
             <a
               href="#contact"
               onClick={handleNavClick}
-              className="px-8 py-3 border border-cyan-default text-cyan-default font-mono text-sm uppercase tracking-widest hover:bg-cyan-default hover:text-bg transition-colors"
+              className="w-full py-4 border border-cyan-default text-cyan-default font-mono text-xs text-center uppercase tracking-[0.2em] hover:bg-cyan-default hover:text-bg transition-all duration-300"
             >
               Get Started
             </a>
