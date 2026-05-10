@@ -6,6 +6,7 @@ import { Services } from "@/components/Services";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Stats } from "@/components/Stats";
 import { Testimonials } from "@/components/Testimonials";
+import { Team } from "@/components/Team";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <HowItWorks />
       <Stats />
       <Testimonials />
+      <Team />
       <Contact />
       <Footer />
     </main>

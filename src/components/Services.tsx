@@ -1,44 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, RefreshCcw, Share2, Cloud, BarChart3, Cpu } from "lucide-react";
+import { GraduationCap, Newspaper, Pill, BookOpen, ShoppingBag, Layout } from "lucide-react";
 
 const services = [
   {
-    title: "Web Development",
-    desc: "High-performance, brutalist frontends and robust backends. We build scalable web applications that dominate their niches.",
-    icon: <Code className="w-6 h-6 text-cyan-default" />,
-    tags: ["React / Next", "Node"]
+    title: "School Systems",
+    desc: "Complete digitalization of results, attendance, and student tracking. Stand out from other schools with a professional portal.",
+    icon: <GraduationCap className="w-6 h-6 text-cyan-default" />,
+    tags: ["LMS", "Automation", "SMS Alerts"]
   },
   {
-    title: "Workflow Automation",
-    desc: "Eliminate manual data entry. We design automated pipelines that connect your operations, saving hundreds of human hours.",
-    icon: <RefreshCcw className="w-6 h-6 text-cyan-default" />,
-    tags: ["Zapier", "Make"]
+    title: "Newspaper Portals",
+    desc: "Ultra-fast digital news platforms optimized for mobile. Get higher retention than Facebook and maximize AdSense revenue.",
+    icon: <Newspaper className="w-6 h-6 text-cyan-default" />,
+    tags: ["SEO", "AdSense", "Speed"]
   },
   {
-    title: "API & Integration",
-    desc: "Seamless data flow between distinct silos. We build and consume REST/GraphQL APIs to unify your fragmented software stack.",
-    icon: <Share2 className="w-6 h-6 text-cyan-default" />,
-    tags: ["REST", "GraphQL"]
+    title: "Pharma Management",
+    desc: "Intelligent inventory for local pharmacies. Track expiry dates, manage stock levels, and eliminate financial loss from waste.",
+    icon: <Pill className="w-6 h-6 text-cyan-default" />,
+    tags: ["Inventory", "POS", "Analytics"]
   },
   {
-    title: "Cloud & DevOps",
-    desc: "Bulletproof infrastructure deployment. We handle Dockerization, CI/CD pipelines, and cloud hosting for ultimate uptime.",
-    icon: <Cloud className="w-6 h-6 text-cyan-default" />,
-    tags: ["AWS", "Docker"]
+    title: "Coaching Portals",
+    desc: "Comprehensive management for coaching centers. Online exams, lecture sheet distribution, and automated parent notifications.",
+    icon: <BookOpen className="w-6 h-6 text-cyan-default" />,
+    tags: ["Online Exam", "Payments", "CRM"]
   },
   {
-    title: "Data & Analytics",
-    desc: "Turn raw noise into actionable signals. Custom dashboards, tracking implementations, and database architecture.",
-    icon: <BarChart3 className="w-6 h-6 text-cyan-default" />,
-    tags: ["PostgreSQL", "D3.js"]
+    title: "E-commerce Stores",
+    desc: "Level up from F-commerce to a professional store. Automated checkout, payment gateway integration, and order tracking.",
+    icon: <ShoppingBag className="w-6 h-6 text-cyan-default" />,
+    tags: ["Payment Gateway", "Inventory", "UI/UX"]
   },
   {
-    title: "AI Integration",
-    desc: "Embed LLMs and machine learning directly into your products. From intelligent chat agents to autonomous text generation.",
-    icon: <Cpu className="w-6 h-6 text-cyan-default" />,
-    tags: ["OpenAI API", "RAG"]
+    title: "Corporate Identity",
+    desc: "Custom high-end websites for local businesses looking to build a premium brand presence in the digital landscape.",
+    icon: <Layout className="w-6 h-6 text-cyan-default" />,
+    tags: ["Branding", "Landing Page", "Performance"]
   }
 ];
 

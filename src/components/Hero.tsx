@@ -23,7 +23,7 @@ export const Hero = () => {
         </h1>
 
         <p className="font-inter font-light text-lg md:text-xl text-textMuted max-w-2xl mb-10 leading-relaxed">
-          Synthorix architects brutalist web experiences and zero-friction automated workflows. Stop performing repetitive tasks. Start scaling.
+          Synthorix architects premium digital experiences and automated systems for the next generation of Bangladeshi industries. From schools to e-commerce, we transform raw potential into technical dominance.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-16 w-full sm:w-auto">
