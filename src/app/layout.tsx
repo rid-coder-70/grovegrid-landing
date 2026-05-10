@@ -22,6 +22,9 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: "Synthorix | We Build the Web. We Automate the Rest.",
   description: "Synthorix architects brutalist web experiences and zero-friction automated workflows.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
