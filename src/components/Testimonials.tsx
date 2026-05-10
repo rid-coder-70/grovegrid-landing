@@ -26,7 +26,7 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-32 px-6 relative z-10 max-w-7xl mx-auto border-t border-borderCol">
+    <section id="testimonials" className="py-20 sm:py-32 px-4 sm:px-6 relative z-10 max-w-7xl mx-auto border-t border-borderCol">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,12 +36,12 @@ export const Testimonials = () => {
         <span className="font-mono text-xs text-cyan-default uppercase tracking-widest border border-cyan-default/30 bg-cyan-default/10 px-3 py-1 mb-4 inline-block">
           Proof
         </span>
-        <h2 className="font-syne text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
+        <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
           Client Results
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
         {testimonials.map((t, index) => (
           <motion.div
             key={index}
@@ -49,7 +49,7 @@ export const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="bg-panel border border-borderCol p-8 glow-card"
+            className="bg-panel border border-borderCol p-6 sm:p-8 glow-card"
           >
             <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => (

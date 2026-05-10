@@ -17,7 +17,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-panel relative z-10 px-6 border-t border-borderCol">
+    <section id="contact" className="py-20 sm:py-32 bg-panel relative z-10 px-4 sm:px-6 border-t border-borderCol">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -28,12 +28,12 @@ export const Contact = () => {
           <span className="font-mono text-xs text-cyan-default uppercase tracking-widest border border-cyan-default/30 bg-cyan-default/10 px-3 py-1 mb-4 inline-block">
             Initiate
           </span>
-          <h2 className="font-syne text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
             Start a Project
           </h2>
         </div>
 
-        <div className="bg-bg border border-borderCol p-8 glow-card rounded">
+        <div className="bg-bg border border-borderCol p-5 sm:p-8 glow-card rounded">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">

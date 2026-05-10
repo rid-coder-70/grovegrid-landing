@@ -2,8 +2,8 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from "./Icons";
 
 export const Footer = () => {
   return (
-    <footer className="bg-bg border-t border-borderCol pt-16 pb-8 px-6 relative z-10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-12">
+    <footer className="bg-bg border-t border-borderCol pt-12 sm:pt-16 pb-6 sm:pb-8 px-4 sm:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-6 sm:gap-8 mb-8 sm:mb-12">
         
         <div className="flex flex-col items-center md:items-start">
           <a href="#" className="flex items-center gap-3 mb-4">

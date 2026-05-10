@@ -27,7 +27,7 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section id="how" className="py-32 bg-panel border-y border-borderCol relative z-10 px-6">
+    <section id="how" className="py-20 sm:py-32 bg-panel border-y border-borderCol relative z-10 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -38,12 +38,12 @@ export const HowItWorks = () => {
           <span className="font-mono text-xs text-cyan-default uppercase tracking-widest border border-cyan-default/30 bg-cyan-default/10 px-3 py-1 mb-4 inline-block">
             Methodology
           </span>
-          <h2 className="font-syne text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
+          <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
             How We Work
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}

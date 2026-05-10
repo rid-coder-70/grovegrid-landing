@@ -44,7 +44,7 @@ const services = [
 
 export const Services = () => {
   return (
-    <section id="services" className="py-32 px-6 relative z-10 max-w-7xl mx-auto">
+    <section id="services" className="py-20 sm:py-32 px-4 sm:px-6 relative z-10 max-w-7xl mx-auto">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -54,12 +54,12 @@ export const Services = () => {
         <span className="font-mono text-xs text-cyan-default uppercase tracking-widest border border-cyan-default/30 bg-cyan-default/10 px-3 py-1 mb-4 inline-block">
           Capabilities
         </span>
-        <h2 className="font-syne text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
+        <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
           What We Build
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {services.map((service, index) => (
           <motion.div
             key={index}
@@ -67,7 +67,7 @@ export const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="bg-panel border border-borderCol p-8 glow-card"
+            className="bg-panel border border-borderCol p-6 sm:p-8 glow-card"
           >
             <div className="w-12 h-12 border border-cyan-default/30 bg-cyan-default/5 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(34,211,238,0.1)]">
               {service.icon}
