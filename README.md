@@ -10,6 +10,7 @@ Synthorix is a high-performance, dark-brutalist landing page for a fictional (or
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Icons**: [Lucide React](https://lucide.dev/)
+- **Email Service**: [Resend](https://resend.com/)
 - **Typeface**: Syne & Inter (Customized via CSS Variables)
 
 ## 🎨 Design Philosophy
@@ -28,6 +29,25 @@ Synthorix leverages a **Dark Brutalist** aesthetic, characterized by:
 - **E-commerce Engines**: Professional online stores transitioning businesses from F-commerce to full automation.
 - **Neural Hero Section**: Cinematic introduction with dynamic background effects tailored for industrial growth.
 - **Responsive Architecture**: Fully optimized for mobile, tablet, and ultra-wide displays.
+
+## 📩 Contact Form Integration
+
+The contact form is powered by **Next.js Server Actions** and **Resend**. It supports:
+- **Multiple Recipients**: Send notifications to multiple emails simultaneously.
+- **Server-Side Security**: API keys are never exposed to the client.
+- **HTML Templating**: Professional email layout for project inquiries.
+
+### 🔑 Environment Variables
+
+To make the contact form work, create a `.env.local` file (or set these in Vercel):
+
+```env
+RESEND_API_KEY=re_your_api_key
+CONTACT_RECIPIENT_EMAIL=your_email@example.com
+```
+
+> [!NOTE]
+> For multiple recipients, use a comma-separated list: `email1@example.com, email2@example.com`
 
 ## 🛠️ Getting Started
 
