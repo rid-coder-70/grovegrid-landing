@@ -3,17 +3,34 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Check } from "lucide-react";
+import { sendEmail } from "@/app/actions/contact";
 
 export const Contact = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => {
-      setStatus("sent");
-      setTimeout(() => setStatus("idle"), 5000);
-    }, 1500);
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const result = await sendEmail(formData);
+
+      if (result.success) {
+        setStatus("sent");
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        console.error(result.error);
+        setStatus("idle");
+        alert(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("idle");
+      alert("Failed to send message. Please check your connection.");
+    }
   };
 
   return (
@@ -40,6 +57,7 @@ export const Contact = () => {
                 <label className="font-mono text-xs text-textMuted uppercase tracking-widest">Name</label>
                 <input 
                   type="text" 
+                  name="name"
                   required 
                   className="bg-panel border border-borderCol focus:border-cyan-default text-textMain px-4 py-3 outline-none transition-colors font-mono text-sm" 
                   placeholder="_JOHN DOE" 
@@ -49,6 +67,7 @@ export const Contact = () => {
                 <label className="font-mono text-xs text-textMuted uppercase tracking-widest">Email</label>
                 <input 
                   type="email" 
+                  name="email"
                   required 
                   className="bg-panel border border-borderCol focus:border-cyan-default text-textMain px-4 py-3 outline-none transition-colors font-mono text-sm" 
                   placeholder="_J.DOE@COMPANY.COM" 
@@ -59,6 +78,7 @@ export const Contact = () => {
             <div className="flex flex-col gap-2">
               <label className="font-mono text-xs text-textMuted uppercase tracking-widest">Service</label>
               <select 
+                name="service"
                 required 
                 className="bg-panel border border-borderCol focus:border-cyan-default text-textMain px-4 py-3 outline-none transition-colors font-mono text-sm appearance-none cursor-pointer"
               >
@@ -75,6 +95,7 @@ export const Contact = () => {
             <div className="flex flex-col gap-2">
               <label className="font-mono text-xs text-textMuted uppercase tracking-widest">Project Brief</label>
               <textarea 
+                name="message"
                 required 
                 rows={4} 
                 className="bg-panel border border-borderCol focus:border-cyan-default text-textMain px-4 py-3 outline-none transition-colors font-mono text-sm resize-none" 
