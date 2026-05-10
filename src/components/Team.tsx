@@ -24,7 +24,7 @@ const teamMembers = [
     },
   },
   {
-    name: "Priom",
+    name: "Priom Chakraborty",
     role: "Co-Founder & COO of Synthorix",
     cornerLabel: "CO-FOUNDER",
     image: "/profile_priom.jpeg",
