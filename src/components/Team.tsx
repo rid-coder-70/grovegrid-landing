@@ -54,7 +54,7 @@ export const Team = () => {
 
               <div className="text-center md:text-left">
                 <h3 className="font-syne text-3xl font-extrabold text-textMain mb-1">Ridoy Baidya</h3>
-                <p className="font-mono text-xs text-cyan-default uppercase tracking-widest mb-4">Founder & CEO</p>
+                <p className="font-mono text-xs text-cyan-default uppercase tracking-widest mb-4">Founder & CEO of Synthorix</p>
                 
                 <p className="text-textMuted text-sm leading-relaxed mb-4">
                  I am a Full-Stack Web Developer from Sylhet, Bangladesh. I specialize in building robust and scalable web applications using modern technologies. My focus is on creating seamless user experiences with clean, efficient code.
