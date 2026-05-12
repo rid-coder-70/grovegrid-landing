@@ -10,6 +10,7 @@ import { Team } from "@/components/Team";
 import { RecentWork } from "@/components/RecentWork";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { Chatbot } from "@/components/Chatbot";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Team />
       <Contact />
       <Footer />
+      <Chatbot />
     </main>
   );
 }
