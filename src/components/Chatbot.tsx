@@ -4,7 +4,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, ChevronDown, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/* ── Types ── */
 interface Message {
   id: string;
   role: "user" | "bot";
@@ -17,7 +16,6 @@ interface QuickAction {
   value: string;
 }
 
-/* ── Knowledge Base ── */
 const KNOWLEDGE = {
   about: {
     keywords: ["about", "who", "what is synthorix", "company", "synthorix", "tell me about", "what do you do", "introduce"],
@@ -94,7 +92,6 @@ const FALLBACK_RESPONSES = [
   `That's a great question! Unfortunately it's outside my knowledge. I can help with anything about **Synthorix** — our services, team, process, or getting in touch.`,
 ];
 
-/* ── Intent Matching ── */
 function matchIntent(input: string): { response: string; actions?: QuickAction[] } | null {
   const lower = input.toLowerCase().trim();
 
@@ -108,7 +105,6 @@ function matchIntent(input: string): { response: string; actions?: QuickAction[]
   return null;
 }
 
-/* ── Simple Markdown Renderer ── */
 function renderMarkdown(text: string): string {
   return text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -116,7 +112,7 @@ function renderMarkdown(text: string): string {
     .replace(/\n/g, '<br />');
 }
 
-/* ── Chatbot Component ── */
+
 export const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([GREETING]);
@@ -144,7 +140,6 @@ export const Chatbot = () => {
     }
   }, [isOpen]);
 
-  // Show unread indicator after 5 seconds if chat hasn't been opened
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!isOpen) setHasUnread(true);
@@ -180,7 +175,6 @@ export const Chatbot = () => {
     const content = (text || input).trim();
     if (!content) return;
 
-    // Add user message
     const userMsg: Message = {
       id: Date.now().toString(),
       role: "user",
@@ -189,7 +183,6 @@ export const Chatbot = () => {
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
-    // Match intent
     const match = matchIntent(content);
     if (match) {
       addBotMessage(match.response, match.actions);
@@ -221,7 +214,6 @@ export const Chatbot = () => {
 
   return (
     <>
-      {/* ── FAB Button ── */}
       <motion.button
         onClick={() => {
           if (isOpen) {
@@ -261,7 +253,6 @@ export const Chatbot = () => {
           )}
         </AnimatePresence>
 
-        {/* Unread badge */}
         {hasUnread && !isOpen && (
           <motion.div
             initial={{ scale: 0 }}
@@ -272,8 +263,6 @@ export const Chatbot = () => {
           </motion.div>
         )}
       </motion.button>
-
-      {/* ── Chat Panel ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -310,7 +299,6 @@ export const Chatbot = () => {
               </button>
             </div>
 
-            {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 scrollbar-thin">
               {messages.map((msg) => (
                 <motion.div
@@ -332,7 +320,6 @@ export const Chatbot = () => {
                       dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.text) }}
                     />
 
-                    {/* Quick Actions */}
                     {msg.actions && msg.actions.length > 0 && (
                       <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-borderCol/50">
                         {msg.actions.map((action, i) => (
@@ -350,7 +337,6 @@ export const Chatbot = () => {
                 </motion.div>
               ))}
 
-              {/* Typing Indicator */}
               {isTyping && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
@@ -368,7 +354,6 @@ export const Chatbot = () => {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Area */}
             <div className="px-4 py-3 border-t border-borderCol bg-panel/50 shrink-0">
               <div className="flex gap-2">
                 <input
