@@ -12,7 +12,8 @@ const stats = [
 export const Stats = () => {
   return (
     <section id="stats" className="py-16 sm:py-24 relative overflow-hidden z-10">
-      <div className="grid-overlay"></div>
+      <div className="grid-overlay" />
+      <div className="grid-dots" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 text-center relative z-10">
         {stats.map((stat, index) => (
           <motion.div

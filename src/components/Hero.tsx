@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <header className="relative min-h-screen flex flex-col items-center justify-center pt-20 sm:pt-24 pb-8 sm:pb-12 overflow-hidden z-10 px-4 sm:px-6 text-center">
-      <div className="grid-overlay"></div>
+      <div className="grid-overlay" />
+      <div className="grid-dots" />
+      <div className="grid-perspective" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
