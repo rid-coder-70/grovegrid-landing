@@ -7,8 +7,8 @@ export const Footer = () => {
         
         <div className="flex flex-col items-center md:items-start">
           <a href="#" className="flex items-center gap-3 mb-4">
-            <div className="w-4 h-4 bg-cyan-default transform rotate-45"></div>
-            <span className="font-syne font-extrabold tracking-widest text-xl">SYNTHORIX</span>
+            <img src="/new_logo.jpeg" alt="Grovegrid Logo" className="w-8 h-8 rounded-sm object-cover" />
+            <span className="font-syne font-extrabold tracking-widest text-xl uppercase">Grovegrid</span>
           </a>
           <p className="text-textMuted font-mono text-xs max-w-xs text-center md:text-left">
             Architects of brutalist digital experiences and automated backend systems.
@@ -48,8 +48,8 @@ export const Footer = () => {
       </div>
 
       <div className="border-t border-borderCol pt-8 flex flex-col md:flex-row justify-center items-center gap-2 font-mono text-[10px] text-textMuted uppercase tracking-widest text-center">
-        <span>© 2026 Synthorix. All rights reserved.</span>
-        <span className="hidden md:inline">·</span>
+        <span>© 2026 Grovegrid. All rights reserved.</span>
+        <span className="hidden md:inline">Â·</span>
         <span>Launched May 10, 2026</span>
       </div>
     </footer>

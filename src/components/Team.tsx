@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
@@ -8,7 +8,7 @@ import Image from "next/image";
 const teamMembers = [
   {
     name: "Ridoy Baidya",
-    role: "Founder & CEO of Synthorix",
+    role: "Founder & CEO of grovegrid",
     cornerLabel: "FOUNDER",
     image: "/profile_ridoy.jpg",
     bio: "I am a Full-Stack Web Developer from Sylhet, Bangladesh. I specialize in building robust and scalable web applications using modern technologies. My focus is on creating seamless user experiences with clean, efficient code.",
@@ -25,10 +25,10 @@ const teamMembers = [
   },
   {
     name: "Priom Chakraborty",
-    role: "Co-Founder & COO of Synthorix",
+    role: "Co-Founder & COO of grovegrid",
     cornerLabel: "CO-FOUNDER",
     image: "/profile_priom.jpeg",
-    bio: "I am a passionate developer and strategic thinker from Sylhet, Bangladesh. I drive operational excellence and product strategy at Synthorix, ensuring every project we deliver exceeds expectations with precision and innovation.",
+    bio: "I am a passionate developer and strategic thinker from Sylhet, Bangladesh. I drive operational excellence and product strategy at grovegrid, ensuring every project we deliver exceeds expectations with precision and innovation.",
     badge: "3RD YEAR CSE @ SUST",
     socials: {
       github: "https://github.com/chkpriom",
@@ -52,7 +52,7 @@ export const Team = () => {
           Leadership
         </span>
         <h2 className="font-syne text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tightest text-textMain">
-          The Minds Behind Synthorix
+          The Minds Behind grovegrid
         </h2>
       </motion.div>
 

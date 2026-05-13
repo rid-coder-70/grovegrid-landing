@@ -1,4 +1,4 @@
-"use server";
+﻿"use server";
 
 import { Resend } from "resend";
 
@@ -20,7 +20,7 @@ export async function sendEmail(formData: FormData) {
       : ["delivered@resend.dev"];
 
     const { data, error } = await resend.emails.send({
-      from: "Synthorix <onboarding@resend.dev>",
+      from: "grovegrid <onboarding@resend.dev>",
       to: recipients, 
       subject: `New Project Inquiry: ${service} from ${name}`,
       replyTo: email,

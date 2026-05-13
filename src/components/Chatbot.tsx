@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, ChevronDown, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/* ── Types ── */
+/* â”€â”€ Types â”€â”€ */
 interface Message {
   id: string;
   role: "user" | "bot";
@@ -17,50 +17,50 @@ interface QuickAction {
   value: string;
 }
 
-/* ── Knowledge Base ── */
+/* â”€â”€ Knowledge Base â”€â”€ */
 const KNOWLEDGE = {
   about: {
-    keywords: ["about", "who", "what is synthorix", "company", "synthorix", "tell me about", "what do you do", "introduce"],
-    response: `**Synthorix** is a premium tech studio founded in **May 2026** by two 3rd-year CSE students from SUST, Sylhet, Bangladesh.\n\nWe architect **brutalist digital experiences** and **automated backend systems** for the next generation of Bangladeshi industries — from schools to e-commerce.\n\nOur motto: **"We Build the Web. We Automate the Rest."**`,
+    keywords: ["about", "who", "what is grovegrid", "company", "grovegrid", "tell me about", "what do you do", "introduce"],
+    response: `**grovegrid** is a premium tech studio founded in **May 2026** by two 3rd-year CSE students from SUST, Sylhet, Bangladesh.\n\nWe architect **brutalist digital experiences** and **automated backend systems** for the next generation of Bangladeshi industries â€” from schools to e-commerce.\n\nOur motto: **"We Build the Web. We Automate the Rest."**`,
   },
   services: {
     keywords: ["service", "services", "what do you build", "offer", "capabilities", "build", "develop"],
-    response: `We specialize in **6 core service areas**:\n\n🎓 **School Systems** — LMS, attendance, result portals\n📰 **Newspaper Portals** — SEO-optimized news platforms\n💊 **Pharma Management** — Inventory & POS for pharmacies\n📚 **Coaching Portals** — Online exams, payments, CRM\n🛒 **E-commerce Stores** — Professional stores with payment gateways\n🏢 **Corporate Identity** — Premium brand websites\n\nWant to see more? I can take you to the **Services** section.`,
-    actions: [{ label: "→ View Services", value: "navigate:services" }],
+    response: `We specialize in **6 core service areas**:\n\nðŸŽ“ **School Systems** â€” LMS, attendance, result portals\nðŸ“° **Newspaper Portals** â€” SEO-optimized news platforms\nðŸ’Š **Pharma Management** â€” Inventory & POS for pharmacies\nðŸ“š **Coaching Portals** â€” Online exams, payments, CRM\nðŸ›’ **E-commerce Stores** â€” Professional stores with payment gateways\nðŸ¢ **Corporate Identity** â€” Premium brand websites\n\nWant to see more? I can take you to the **Services** section.`,
+    actions: [{ label: "â†’ View Services", value: "navigate:services" }],
   },
   process: {
     keywords: ["process", "how do you work", "methodology", "workflow", "how it works", "steps", "approach"],
-    response: `Our **4-step methodology** ensures flawless delivery:\n\n**01 → Discovery** — We strip your idea down to the studs, identify bottlenecks, and set brutal goals.\n\n**02 → Scope & Plan** — Architectural blueprinting — data structures, tech stack, API endpoints.\n\n**03 → Build & Review** — Aggressive iteration cycles with continuous collaboration.\n\n**04 → Launch & Scale** — Production deployment with automated scaling.`,
-    actions: [{ label: "→ See Our Process", value: "navigate:how" }],
+    response: `Our **4-step methodology** ensures flawless delivery:\n\n**01 â†’ Discovery** â€” We strip your idea down to the studs, identify bottlenecks, and set brutal goals.\n\n**02 â†’ Scope & Plan** â€” Architectural blueprinting â€” data structures, tech stack, API endpoints.\n\n**03 â†’ Build & Review** â€” Aggressive iteration cycles with continuous collaboration.\n\n**04 â†’ Launch & Scale** â€” Production deployment with automated scaling.`,
+    actions: [{ label: "â†’ See Our Process", value: "navigate:how" }],
   },
   team: {
     keywords: ["team", "founder", "who runs", "leadership", "ridoy", "priom", "ceo", "coo", "co-founder", "members"],
-    response: `**The minds behind Synthorix:**\n\n👤 **Ridoy Baidya** — *Founder & CEO*\nFull-Stack Web Developer from Sylhet. 3rd Year CSE @ SUST. Specializes in building robust and scalable web applications.\n\n👤 **Priom Chakraborty** — *Co-Founder & COO*\nPassionate developer and strategic thinker. Drives operational excellence and product strategy at Synthorix.`,
-    actions: [{ label: "→ Meet the Team", value: "navigate:team" }],
+    response: `**The minds behind grovegrid:**\n\nðŸ‘¤ **Ridoy Baidya** â€” *Founder & CEO*\nFull-Stack Web Developer from Sylhet. 3rd Year CSE @ SUST. Specializes in building robust and scalable web applications.\n\nðŸ‘¤ **Priom Chakraborty** â€” *Co-Founder & COO*\nPassionate developer and strategic thinker. Drives operational excellence and product strategy at grovegrid.`,
+    actions: [{ label: "â†’ Meet the Team", value: "navigate:team" }],
   },
   contact: {
     keywords: ["contact", "reach", "email", "hire", "start a project", "get started", "work with", "connect", "message"],
-    response: `Ready to launch your project? Here's how to reach us:\n\n📩 **Fill out the contact form** on our site — we reply within **24 hours**.\n\nYou can select your primary need:\n• Web Development\n• Workflow Automation\n• API Integration\n• Cloud / DevOps\n• Data Analytics\n• AI Integration\n\nLet me take you there!`,
-    actions: [{ label: "→ Start a Project", value: "navigate:contact" }],
+    response: `Ready to launch your project? Here's how to reach us:\n\nðŸ“© **Fill out the contact form** on our site â€” we reply within **24 hours**.\n\nYou can select your primary need:\nâ€¢ Web Development\nâ€¢ Workflow Automation\nâ€¢ API Integration\nâ€¢ Cloud / DevOps\nâ€¢ Data Analytics\nâ€¢ AI Integration\n\nLet me take you there!`,
+    actions: [{ label: "â†’ Start a Project", value: "navigate:contact" }],
   },
   results: {
     keywords: ["results", "stats", "numbers", "projects", "how many", "track record", "speed", "portfolio"],
-    response: `Here's our track record so far:\n\n🚀 **50+** Projects Shipped\n⚡ **<48h** Prototype Time\n🔥 **10x** Execution Speed\n💯 **100%** TypeScript\n\nWe move fast and ship quality.`,
-    actions: [{ label: "→ See Results", value: "navigate:stats" }],
+    response: `Here's our track record so far:\n\nðŸš€ **50+** Projects Shipped\nâš¡ **<48h** Prototype Time\nðŸ”¥ **10x** Execution Speed\nðŸ’¯ **100%** TypeScript\n\nWe move fast and ship quality.`,
+    actions: [{ label: "â†’ See Results", value: "navigate:stats" }],
   },
   testimonials: {
     keywords: ["testimonial", "review", "client", "feedback", "what clients say", "proof", "customers"],
-    response: `Our clients love what we build:\n\n⭐ *"Synthorix automated our entire lead qualification pipeline. We reduced manual overhead by 80%."*\n— **Marcus Reed**, Founder, NovaFlow\n\n⭐ *"The UI is incredibly sharp, and the backend is rock solid."*\n— **Sarah Lin**, CTO, DataSyndicate\n\n⭐ *"They integrated OpenAI into our portal in under two weeks. Pure technical execution."*\n— **James Vance**, VP Engineering, Aethos`,
-    actions: [{ label: "→ Read Reviews", value: "navigate:testimonials" }],
+    response: `Our clients love what we build:\n\nâ­ *"grovegrid automated our entire lead qualification pipeline. We reduced manual overhead by 80%."*\nâ€” **Marcus Reed**, Founder, NovaFlow\n\nâ­ *"The UI is incredibly sharp, and the backend is rock solid."*\nâ€” **Sarah Lin**, CTO, DataSyndicate\n\nâ­ *"They integrated OpenAI into our portal in under two weeks. Pure technical execution."*\nâ€” **James Vance**, VP Engineering, Aethos`,
+    actions: [{ label: "â†’ Read Reviews", value: "navigate:testimonials" }],
   },
   pricing: {
     keywords: ["price", "pricing", "cost", "how much", "budget", "quote", "rate", "charge"],
     response: `We tailor pricing to each project's scope and complexity. There's no one-size-fits-all.\n\n**To get a custom quote:**\n1. Fill out the contact form with your project brief\n2. We'll schedule a discovery call\n3. You'll receive a detailed proposal within 48 hours\n\nNo hidden fees. No surprises.`,
-    actions: [{ label: "→ Get a Quote", value: "navigate:contact" }],
+    actions: [{ label: "â†’ Get a Quote", value: "navigate:contact" }],
   },
   tech: {
     keywords: ["tech", "technology", "stack", "tools", "framework", "next.js", "react", "typescript", "tailwind"],
-    response: `Our **tech stack** is built for speed and scale:\n\n⚙️ **Frontend:** Next.js, React, Tailwind CSS, Framer Motion\n⚙️ **Backend:** Node.js, REST APIs, GraphQL\n⚙️ **DevOps:** Docker, AWS / GCP, CI/CD\n⚙️ **Automation:** Zapier, Make.com\n⚙️ **Language:** 100% TypeScript\n\nWe use the same modern tools that power top-tier startups worldwide.`,
+    response: `Our **tech stack** is built for speed and scale:\n\nâš™ï¸ **Frontend:** Next.js, React, Tailwind CSS, Framer Motion\nâš™ï¸ **Backend:** Node.js, REST APIs, GraphQL\nâš™ï¸ **DevOps:** Docker, AWS / GCP, CI/CD\nâš™ï¸ **Automation:** Zapier, Make.com\nâš™ï¸ **Language:** 100% TypeScript\n\nWe use the same modern tools that power top-tier startups worldwide.`,
   },
   navigation: {
     keywords: ["navigate", "go to", "take me", "show me", "where is", "find", "section"],
@@ -79,7 +79,7 @@ const KNOWLEDGE = {
 const GREETING: Message = {
   id: "greeting",
   role: "bot",
-  text: `Hey there! 👋 I'm **SynthoBot**, your guide to everything Synthorix.\n\nI can help you with:\n• Learn about our **services & process**\n• Meet the **team**\n• Navigate to any **section**\n• Get a **project quote**\n\nWhat would you like to know?`,
+  text: `Hey there! ðŸ‘‹ I'm **GroveBot**, your guide to everything grovegrid.\n\nI can help you with:\nâ€¢ Learn about our **services & process**\nâ€¢ Meet the **team**\nâ€¢ Navigate to any **section**\nâ€¢ Get a **project quote**\n\nWhat would you like to know?`,
   actions: [
     { label: "About Us", value: "about" },
     { label: "Services", value: "services" },
@@ -90,11 +90,11 @@ const GREETING: Message = {
 
 const FALLBACK_RESPONSES = [
   `Hmm, I'm not sure about that one. But I can tell you about our **services**, **team**, **process**, or help you **start a project**! What interests you?`,
-  `I don't have info on that specifically, but I'm an expert on all things Synthorix! Try asking about our **capabilities**, **pricing**, or **tech stack**.`,
-  `That's a great question! Unfortunately it's outside my knowledge. I can help with anything about **Synthorix** — our services, team, process, or getting in touch.`,
+  `I don't have info on that specifically, but I'm an expert on all things grovegrid! Try asking about our **capabilities**, **pricing**, or **tech stack**.`,
+  `That's a great question! Unfortunately it's outside my knowledge. I can help with anything about **grovegrid** â€” our services, team, process, or getting in touch.`,
 ];
 
-/* ── Intent Matching ── */
+/* â”€â”€ Intent Matching â”€â”€ */
 function matchIntent(input: string): { response: string; actions?: QuickAction[] } | null {
   const lower = input.toLowerCase().trim();
 
@@ -108,7 +108,7 @@ function matchIntent(input: string): { response: string; actions?: QuickAction[]
   return null;
 }
 
-/* ── Simple Markdown Renderer ── */
+/* â”€â”€ Simple Markdown Renderer â”€â”€ */
 function renderMarkdown(text: string): string {
   return text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -116,7 +116,7 @@ function renderMarkdown(text: string): string {
     .replace(/\n/g, '<br />');
 }
 
-/* ── Chatbot Component ── */
+/* â”€â”€ Chatbot Component â”€â”€ */
 export const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([GREETING]);
@@ -221,7 +221,7 @@ export const Chatbot = () => {
 
   return (
     <>
-      {/* ── FAB Button ── */}
+      {/* â”€â”€ FAB Button â”€â”€ */}
       <motion.button
         onClick={() => {
           if (isOpen) {
@@ -273,7 +273,7 @@ export const Chatbot = () => {
         )}
       </motion.button>
 
-      {/* ── Chat Panel ── */}
+      {/* â”€â”€ Chat Panel â”€â”€ */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -293,7 +293,7 @@ export const Chatbot = () => {
                 <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-panel" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-syne font-bold text-sm text-textMain">SynthoBot</h3>
+                <h3 className="font-syne font-bold text-sm text-textMain">GroveBot</h3>
                 <p className="font-mono text-[10px] text-green-400 uppercase tracking-widest">Online</p>
               </div>
               <button
@@ -392,7 +392,7 @@ export const Chatbot = () => {
                 </button>
               </div>
               <p className="font-mono text-[9px] text-textMuted/50 text-center mt-2 uppercase tracking-wider">
-                Powered by Synthorix
+                Powered by grovegrid
               </p>
             </div>
           </motion.div>

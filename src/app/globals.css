@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #050810;
-  --color-panel: #0b0f1a;
-  --color-borderCol: #1a2035;
-  --color-cyan-default: #22d3ee;
-  --color-cyan-dim: #0e7490;
-  --color-textMain: #e2e8f0;
-  --color-textMuted: #64748b;
+  --color-bg: #041F13;
+  --color-panel: #072919;
+  --color-borderCol: #0A3C26;
+  --color-cyan-default: #EFE7D3;
+  --color-cyan-dim: #A8B89E;
+  --color-textMain: #EFE7D3;
+  --color-textMuted: #A8B89E;
 
   --font-syne: var(--font-syne);
   --font-mono: var(--font-mono);
@@ -31,13 +31,13 @@
 }
 
 :root {
-  --bg: #050810;
-  --panel: #0b0f1a;
-  --border: #1a2035;
-  --cyan: #22d3ee;
-  --cyan-dim: #0e7490;
-  --text-main: #e2e8f0;
-  --text-muted: #64748b;
+  --bg: #041F13;
+  --panel: #072919;
+  --border: #0A3C26;
+  --cyan: #EFE7D3;
+  --cyan-dim: #A8B89E;
+  --text-main: #EFE7D3;
+  --text-muted: #A8B89E;
 }
 
 body {
@@ -85,8 +85,8 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(239,231,211,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,231,211,0.03) 1px, transparent 1px);
   background-size: 30px 30px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
@@ -98,8 +98,8 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(34,211,238,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,211,238,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(239,231,211,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,231,211,0.06) 1px, transparent 1px);
   background-size: 120px 120px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 65%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 65%);
@@ -111,7 +111,7 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image: radial-gradient(circle 1.5px at center, rgba(34,211,238,0.12) 0%, transparent 100%);
+  background-image: radial-gradient(circle 1.5px at center, rgba(239,231,211,0.12) 0%, transparent 100%);
   background-size: 120px 120px;
   mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 15%, transparent 60%);
   -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 15%, transparent 60%);
@@ -125,8 +125,8 @@ body {
   pointer-events: none;
   z-index: 0;
   background-image:
-    linear-gradient(rgba(34,211,238,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,211,238,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(239,231,211,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,231,211,0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   transform: perspective(500px) rotateX(55deg);
   transform-origin: center bottom;
@@ -143,7 +143,7 @@ body {
 .scanline {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 150px;
-  background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.08), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(239, 231, 211, 0.08), transparent);
   animation: scanline 8s linear infinite;
   pointer-events: none;
   z-index: 40;
@@ -178,7 +178,7 @@ body {
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+  text-shadow: 0 0 20px rgba(239, 231, 211, 0.4);
 }
 .glow-card {
   transition: all 0.3s ease;
@@ -186,7 +186,7 @@ body {
 .glow-card:hover {
   transform: translateY(-4px);
   border-color: var(--cyan);
-  box-shadow: 0 0 25px rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 25px rgba(239, 231, 211, 0.15);
 }
 
 .reveal {

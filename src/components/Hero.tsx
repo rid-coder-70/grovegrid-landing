@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -16,16 +16,15 @@ export const Hero = () => {
         className="relative z-10 max-w-4xl mx-auto flex flex-col items-center"
       >
         <div className="inline-block border border-borderCol bg-panel px-3 sm:px-4 py-1.5 mb-6 sm:mb-8 font-mono text-[10px] sm:text-xs text-textMuted uppercase tracking-widest">
-          v1.0 — Launch Day, May 10 2026
+          v1.0 â€” Launch Day, May 10 2026
         </div>
 
-        <h1 className="font-syne font-extrabold text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tightest leading-[1.1] mb-4 sm:mb-6 text-textMain">
-          We Build the Web.<br />
-          <span className="text-cyan-default text-glow">We Automate the Rest.</span>
+        <h1 className="font-syne font-extrabold text-2xl sm:text-5xl md:text-5xl lg:text-6xl tracking-tightest leading-[1.1] mb-4 sm:mb-6 text-textMain">
+          Where growth meets structure
         </h1>
 
         <p className="font-inter font-light text-sm sm:text-lg md:text-xl text-textMuted max-w-2xl mb-8 sm:mb-10 leading-relaxed">
-          Synthorix architects premium digital experiences and automated systems for the next generation of Bangladeshi industries. From schools to e-commerce, we transform raw potential into technical dominance.
+          Grovegrid architects premium digital experiences and automated systems for the next generation of Bangladeshi industries. From schools to e-commerce, we transform raw potential into technical dominance.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16 w-full sm:w-auto">
@@ -48,10 +47,10 @@ export const Hero = () => {
             <div className="w-3 h-3 rounded-full bg-borderCol"></div>
             <div className="w-3 h-3 rounded-full bg-borderCol"></div>
             <div className="w-3 h-3 rounded-full bg-borderCol"></div>
-            <div className="ml-4 font-mono text-[10px] text-textMuted">sys@synthorix:~</div>
+            <div className="ml-4 font-mono text-[10px] text-textMuted">sys@grovegrid:~</div>
           </div>
           <div className="p-4 sm:p-6 font-mono text-[11px] sm:text-sm leading-loose overflow-x-auto">
-            <span className="text-cyan-default">$</span> synthorix init --project &quot;startup&quot;<br />
+            <span className="text-cyan-default">$</span> grovegrid init --project &quot;startup&quot;<br />
             <span className="text-textMuted">{`> Analyzing requirements... done.`}</span><br />
             <span className="text-textMuted">{`> Scaffolding Next.js & Tailwind... done.`}</span><br />
             <span className="text-textMuted">{`> Wiring automation endpoints... done.`}</span><br />

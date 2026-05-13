@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Synthorix didn't just build our app; they automated our entire lead qualification pipeline. We reduced manual overhead by 80% in the first month.",
+    quote: "grovegrid didn't just build our app; they automated our entire lead qualification pipeline. We reduced manual overhead by 80% in the first month.",
     author: "Marcus Reed",
     role: "Founder, NovaFlow",
     initials: "MR"

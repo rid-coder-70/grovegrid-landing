@@ -20,11 +20,14 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Synthorix | We Build the Web. We Automate the Rest.",
-  description: "Synthorix architects brutalist web experiences and zero-friction automated workflows.",
+  title: "Grovegrid | Where growth meets structure",
+  description: "Grovegrid architects brutalist web experiences and zero-friction automated workflows.",
   icons: {
     icon: "/favicon.png",
   },
+  openGraph: {
+    images: [{ url: "/new_cover.png" }]
+  }
 };
 
 export default function RootLayout({
@@ -37,7 +40,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceMono.variable} ${syne.variable} h-full antialiased scroll-smooth overflow-x-hidden`}
     >
-      <body className="min-h-full w-full flex flex-col bg-[#050810] text-[#e2e8f0] font-inter overflow-x-hidden">
+      <body className="min-h-full w-full flex flex-col bg-bg text-textMain font-inter overflow-x-hidden">
         {children}
       </body>
     </html>
