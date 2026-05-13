@@ -25,12 +25,12 @@ const KNOWLEDGE = {
   },
   services: {
     keywords: ["service", "services", "what do you build", "offer", "capabilities", "build", "develop"],
-    response: `We specialize in **6 core service areas**:\n\nðŸŽ“ **School Systems** â€” LMS, attendance, result portals\nðŸ“° **Newspaper Portals** â€” SEO-optimized news platforms\nðŸ’Š **Pharma Management** â€” Inventory & POS for pharmacies\nðŸ“š **Coaching Portals** â€” Online exams, payments, CRM\nðŸ›’ **E-commerce Stores** â€” Professional stores with payment gateways\nðŸ¢ **Corporate Identity** â€” Premium brand websites\n\nWant to see more? I can take you to the **Services** section.`,
+    response: `We specialize in **6 core service areas**:\n\n“ **School Systems** ” LMS, attendance, result portals\n“ **Newspaper Portals** ” SEO-optimized news platforms\n“ **Pharma Management** ” Inventory & POS for pharmacies\n“ **Coaching Portals** ” Online exams, payments, CRM\n“ **E-commerce Stores** ” Professional stores with payment gateways\n“ **Corporate Identity** ” Premium brand websites\n\nWant to see more? I can take you to the **Services** section.`,
     actions: [{ label: "â†’ View Services", value: "navigate:services" }],
   },
   process: {
     keywords: ["process", "how do you work", "methodology", "workflow", "how it works", "steps", "approach"],
-    response: `Our **4-step methodology** ensures flawless delivery:\n\n**01 â†’ Discovery** â€” We strip your idea down to the studs, identify bottlenecks, and set brutal goals.\n\n**02 â†’ Scope & Plan** â€” Architectural blueprinting â€” data structures, tech stack, API endpoints.\n\n**03 â†’ Build & Review** â€” Aggressive iteration cycles with continuous collaboration.\n\n**04 â†’ Launch & Scale** â€” Production deployment with automated scaling.`,
+    response: `Our **4-step methodology** ensures flawless delivery:\n\n“ **01 ** ” Discovery ” We strip your idea down to the studs, identify bottlenecks, and set brutal goals.\n\n“ **02 ** ” Scope & Plan ” Architectural blueprinting â€” data structures, tech stack, API endpoints.\n\n“ **03 ** ” Build & Review ” Aggressive iteration cycles with continuous collaboration.\n\n“ **04 ** ” Launch & Scale ” Production deployment with automated scaling.`,
     actions: [{ label: "â†’ See Our Process", value: "navigate:how" }],
   },
   team: {
@@ -60,7 +60,7 @@ const KNOWLEDGE = {
   },
   tech: {
     keywords: ["tech", "technology", "stack", "tools", "framework", "next.js", "react", "typescript", "tailwind"],
-    response: `Our **tech stack** is built for speed and scale:\n\nâš™ï¸ **Frontend:** Next.js, React, Tailwind CSS, Framer Motion\nâš™ï¸ **Backend:** Node.js, REST APIs, GraphQL\nâš™ï¸ **DevOps:** Docker, AWS / GCP, CI/CD\nâš™ï¸ **Automation:** Zapier, Make.com\nâš™ï¸ **Language:** 100% TypeScript\n\nWe use the same modern tools that power top-tier startups worldwide.`,
+    response: `Our **tech stack** is built for speed and scale:\n\n**Frontend:** Next.js, React, Tailwind CSS, Framer Motion\n**Backend:** Node.js, REST APIs, GraphQL\n**DevOps:** Docker, AWS / GCP, CI/CD\n**Automation:** Zapier, Make.com\n**Language:** 100% TypeScript\n\nWe use the same modern tools that power top-tier startups worldwide.`,
   },
   navigation: {
     keywords: ["navigate", "go to", "take me", "show me", "where is", "find", "section"],
@@ -79,7 +79,7 @@ const KNOWLEDGE = {
 const GREETING: Message = {
   id: "greeting",
   role: "bot",
-  text: `Hey there! ðŸ‘‹ I'm **GroveBot**, your guide to everything grovegrid.\n\nI can help you with:\nâ€¢ Learn about our **services & process**\nâ€¢ Meet the **team**\nâ€¢ Navigate to any **section**\nâ€¢ Get a **project quote**\n\nWhat would you like to know?`,
+  text: `Hey there! ‘‹ I'm **GroveBot**, your guide to everything grovegrid.\n\nI can help you with:\n Learn about our **services & process**\n Meet the **team**\n Navigate to any **section**\n Get a **project quote**\n\nWhat would you like to know?`,
   actions: [
     { label: "About Us", value: "about" },
     { label: "Services", value: "services" },
@@ -91,7 +91,7 @@ const GREETING: Message = {
 const FALLBACK_RESPONSES = [
   `Hmm, I'm not sure about that one. But I can tell you about our **services**, **team**, **process**, or help you **start a project**! What interests you?`,
   `I don't have info on that specifically, but I'm an expert on all things grovegrid! Try asking about our **capabilities**, **pricing**, or **tech stack**.`,
-  `That's a great question! Unfortunately it's outside my knowledge. I can help with anything about **grovegrid** â€” our services, team, process, or getting in touch.`,
+  `That's a great question! Unfortunately it's outside my knowledge. I can help with anything about **grovegrid** our services, team, process, or getting in touch.`,
 ];
 
 /* â”€â”€ Intent Matching â”€â”€ */
